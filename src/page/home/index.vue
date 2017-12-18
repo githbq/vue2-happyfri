@@ -1,6 +1,6 @@
 <template>
   	<div class="home_container">
-        <itemcontainer father-component="home"></itemcontainer>
+       11111
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   		itemcontainer
   	},
     created(){
-        
+
     }
 }
 </script>
