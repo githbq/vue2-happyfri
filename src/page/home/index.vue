@@ -15,11 +15,15 @@
   x:{{x}}
   <input v-model="x"/>
   <item :value="x" @abc="abc"></item>
+  <Page   :total="100" show-elevator>
+  </Page>
     </div>
 </template>
 
 <script>
 import Item from '../item'
+import Page from './page'
+import 'iview/dist/styles/iview.css'
 export default {
   name: 'home',
   data() {
@@ -28,7 +32,8 @@ export default {
     }
   },
   components: {
-    Item
+    Item,
+    Page
   },
   created() {
 
@@ -40,11 +45,14 @@ export default {
   }
 }
 </script>
+<style lang="less">
+@import "./iview-rewrite.less";
+</style>
 
 <style lang="less" scoped>
 .home_container {
   height: 1000px;
   width: 1000px;
-  border: 1px solid red;
+  border: 5px solid red;
 }
 </style>
