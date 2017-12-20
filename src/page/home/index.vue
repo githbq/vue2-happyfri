@@ -13,27 +13,32 @@
 	></vueCropper>
   -->
   x:{{x}}
-  <input v-model="x"/>
-  <item :value="x" @abc="abc"></item>
   <Page @on-change="myPageChange" :total="100">
   </Page>
+  <button @click="showModal=!showModal">toggle modal</button>
+  <Modal v-model="showModal">
+  <span>hello modal</span>
+  </Modal>
     </div>
 </template>
 
 <script>
 import Item from '../item'
 import Page from './page'
+import Modal from './modal'
 import 'iview/dist/styles/iview.css'
 export default {
   name: 'home',
   data() {
     return {
+      showModal: false,
       x: '22'
     }
   },
   components: {
     Item,
-    Page
+    Page,
+    Modal
   },
   created() {
 
