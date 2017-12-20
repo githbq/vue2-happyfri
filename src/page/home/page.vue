@@ -12,6 +12,8 @@
     :showElevator="showElevator"
     :showSizer="showSizer"
     :styles="styles"
+    :onChange="onChange"
+    :onPageSizeChange="onPageSizeChange"
    >
   </Page>
 </template>
@@ -44,6 +46,12 @@ export default {
   created() {
   },
   methods: {
+    onPageSizeChange(...args) {
+      this.$emit.apply(this, ['onPageSizeChange'].concat(args))
+    },
+    onChange() {
+      this.$emit.apply(this, ['onChange'].concat(args))
+    }
   }
 }
 </script>
