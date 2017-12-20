@@ -1,21 +1,27 @@
 <template>
-   <Page
-    :className="className"
-    :total="total"
-    :current="current"
-    :pageSize="pageSize"
-    :pageSizeOpts="pageSizeOpts"
-    :placement="placement"
-    :size="size"
-    :simple="simple"
-    :showTotal="showTotal"
-    :showElevator="showElevator"
-    :showSizer="showSizer"
-    :styles="styles"
-    :onChange="onChange"
-    :onPageSizeChange="onPageSizeChange"
-   >
-  </Page>
+  <div class="zpfe-page" :class="className" >
+    <Page
+      class-name="zpfe"
+      :total="total"
+      :current.sync="selfCurrent"
+      :pageSize="pageSize"
+      :pageSizeOpts="pageSizeOpts"
+      :placement="placement"
+      :size="size"
+      :simple="simple"
+      :showTotal="showTotal"
+      :showSizer="showSizer"
+      :styles="styles"
+      @on-change="onChange"
+      @on-page-size-change="onPageSizeChange"
+    >
+    </Page>
+    <div class="ivu-page-options-elevator">
+      <span class="text-go">到</span>
+      <input type="text" v-model.number="inputCurrent">
+      <button class="ivu-page-options-goto" @click="changePage">确定</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -31,13 +37,22 @@ export default {
     size: { default: undefined },
     simple: { default: false },
     showTotal: { default: false },
-    showElevator: { default: true },
+    //此属性不能使用
+    showElevator: { default: false },
     showSizer: { default: false },
-    className: { default: 'zpfe' },
+    className: { default: 'right' },
     styles: { default: () => { } }
   },
   data() {
     return {
+      selfCurrent: this.$props.current,
+      inputCurrent: this.$props.current,
+    }
+  },
+  watch: {
+    current(value) {
+      this.$data.selfCurrent = value
+      this.$data.inputCurrent = value
     }
   },
   components: {
@@ -49,12 +64,48 @@ export default {
     onPageSizeChange(...args) {
       this.$emit.apply(this, ['onPageSizeChange'].concat(args))
     },
-    onChange() {
-      this.$emit.apply(this, ['onChange'].concat(args))
+    onChange(page) {
+      this.$data.selfCurrent = page
+      this.$data.inputCurrent = page
+      this.$emit.call(this, 'onChange', page)
+    },
+    changePage() {
+      this.selfCurrent = this.$data.inputCurrent
     }
   }
 }
 </script>
 <style lang="less">
 @import "./iview-rewrite.less";
+.zpfe-page {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+  &.right {
+    float: right;
+  }
+  &.left {
+  }
+  .ivu-page {
+    float: left;
+  }
+  .ivu-page-options-elevator {
+    padding-left: 10px;
+    input {
+      border-radius: 0px;
+    }
+  }
+  .ivu-page-options-goto {
+    background-color: #1787fb;
+    color: #fff;
+    border: none;
+    padding: 0px 15px;
+    cursor: pointer;
+    &:hover {
+      background-color: #1479e1;
+    }
+  }
+}
 </style>

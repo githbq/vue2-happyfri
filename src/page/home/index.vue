@@ -15,7 +15,7 @@
   x:{{x}}
   <input v-model="x"/>
   <item :value="x" @abc="abc"></item>
-  <Page   :total="100" show-elevator>
+  <Page :total="100">
   </Page>
     </div>
 </template>
