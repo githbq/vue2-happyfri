@@ -15,7 +15,7 @@
   x:{{x}}
   <input v-model="x"/>
   <item :value="x" @abc="abc"></item>
-  <Page :total="100">
+  <Page @on-change="myPageChange" :total="100">
   </Page>
     </div>
 </template>
@@ -39,6 +39,9 @@ export default {
 
   },
   methods: {
+    myPageChange() {
+      console.log('myPageChange', arguments)
+    },
     abc() {
       alert(111)
     }

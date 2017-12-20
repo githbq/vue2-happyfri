@@ -62,12 +62,12 @@ export default {
   },
   methods: {
     onPageSizeChange(...args) {
-      this.$emit.apply(this, ['onPageSizeChange'].concat(args))
+      this.$emit.apply(this, ['on-page-size-change'].concat(args))
     },
     onChange(page) {
       this.$data.selfCurrent = page
       this.$data.inputCurrent = page
-      this.$emit.call(this, 'onChange', page)
+      this.$emit.call(this, 'on-change', page)
     },
     changePage() {
       this.selfCurrent = this.$data.inputCurrent
