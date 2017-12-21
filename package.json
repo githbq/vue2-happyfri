@@ -9,9 +9,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "core-js": "^2.5.3",
+    "cropperjs": "^1.2.1",
     "iview": "^2.7.4",
+    "underscore": "^1.8.3",
     "vue": "^2.1.0",
     "vue-cropper": "^0.2.7",
+    "vue-cropperjs": "^2.2.0",
     "vue-router": "^2.1.1",
     "vuex": "^2.0.0"
   },

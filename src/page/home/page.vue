@@ -76,7 +76,6 @@ export default {
 }
 </script>
 <style lang="less">
-@import "./iview-rewrite.less";
 .zpfe-page {
   display: inline-block;
   vertical-align: middle;
@@ -106,6 +105,35 @@ export default {
     &:hover {
       background-color: #1479e1;
     }
+  }
+}
+.zpfe.ivu-page {
+  .ivu-icon.ivu-icon-ios-arrow-left {
+    border-radius: 0px;
+    &:before {
+      content: "上一页";
+    }
+  }
+  .ivu-icon.ivu-icon-ios-arrow-right {
+    &:before {
+      content: "下一页";
+    }
+  }
+  .ivu-page-item-jump-next,
+  .ivu-page-prev,
+  .ivu-page-next,
+  .ivu-page-options-elevator input {
+    border-radius: 0px;
+  }
+  .ivu-page-options-goto {
+    background-color: #1787fb;
+  }
+  .ivu-page-prev,
+  .ivu-page-next {
+    width: 64px;
+  }
+  .ivu-page-item {
+    border-radius: 0px;
   }
 }
 </style>
