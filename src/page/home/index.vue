@@ -72,7 +72,7 @@ export default {
           reader.onload = (event) => {
             this.imgSrc = event.target.result
             this.$refs.cropper.$on('on-img-load', (base64) => {
-              this.croppedSrc = base64
+              // this.croppedSrc = base64
             })
           };
 
