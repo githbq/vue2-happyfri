@@ -1,33 +1,33 @@
 <template>
   	<div class="home_container">
-       1111122
-       <div></div>
-       <!--
-       <vueCropper
-		ref="cropper3"
-		:img="example3.img"
-		:autoCrop="example3.autoCrop"
-		:autoCropWidth="example3.autoCropWidth"
-		:autoCropHeight="example3.autoCropHeight"
-		:fixedBox="example3.fixedBox"
-	></vueCropper>
-  -->
-  x:{{x}}
-  <Page @on-change="myPageChange" :total="100">
-  </Page>
-  <button @click="showModal=!showModal">toggle modal</button>
-  <Modal v-model="showModal">
-  <span>hello modal</span>
-  </Modal>
-    <input type="file" name="image" accept="image/*"
-                    style="font-size: 1.2em; padding: 10px 0;"
-                    @change="setImage"
-                />
-  <Cropper :imgSrc="imgSrc" ref="cropper"/>
-  <button style="font-size:30px;font-weight:bold;" @click="testRef"> test ref </button>
-  <img :src="croppedSrc" alt="croppedSrc">
-
-    </div>
+  <div style="display:none">
+    <hr/>
+    <h1>图片剪裁+ 分页 </h1>
+    <hr/>
+    <Page @on-change="myPageChange" :total="100">
+    </Page>
+    <button @click="showModal=!showModal">toggle modal</button>
+    <Modal v-model="showModal">
+    <span>hello modal</span>
+    </Modal>
+  </div>
+  <div style="display:none">
+    <hr/>
+    <h1>图片剪裁</h1>
+    <hr/>
+      <input type="file" name="image" accept="image/*"
+                      style="font-size: 1.2em; padding: 10px 0;"
+                      @change="setImage"
+                  />
+    <Cropper :imgSrc="imgSrc" ref="cropper"/>
+    <button style="font-size:30px;font-weight:bold;" @click="testRef"> test ref </button>
+    <img :src="croppedSrc" alt="croppedSrc">
+  </div>
+  <hr/>
+  <h1>日期</h1>
+  <hr/>
+  <DatePicker :open="true" :value="Date.now()" confirm type="year" placeholder="Select year" style="width: 200px"></DatePicker>
+  </div>
 </template>
 
 <script>
@@ -36,6 +36,7 @@ import Item from '../item'
 import Page from './page'
 import Modal from './modal'
 import Cropper from './cropper'
+import DatePicker from './date-picker'
 export default {
   name: 'home',
   data() {
@@ -50,7 +51,8 @@ export default {
     Item,
     Page,
     Modal,
-    Cropper
+    Cropper,
+    DatePicker
   },
   created() {
 

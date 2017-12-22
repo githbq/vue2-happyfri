@@ -27,7 +27,6 @@
 
 <script>
 import Modal from 'iview/src/components/modal'
-import 'iview/dist/styles/iview.css'
 export default {
   props: {
     value: { default: false },

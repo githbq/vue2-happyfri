@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import 'iview/dist/styles/iview.css'
 import VueCropper from 'vue-cropperjs';
 export default {
   props: {

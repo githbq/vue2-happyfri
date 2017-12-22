@@ -26,7 +26,6 @@
 
 <script>
 import Page from 'iview/src/components/page'
-import 'iview/dist/styles/iview.css'
 export default {
   props: {
     current: { default: 1 },
