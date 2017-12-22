@@ -1,37 +1,37 @@
 <template>
-  <div class="zpfe-date-picker" :className="className">
-    <DatePicker
-    :open="true"
-    :value="Date.now()"
-    confirm type="year"
-    placeholder="Select year"
-    style="width: 200px">
-    <slot></slot>
-    </DatePicker>
+  <div class="zpfe-iview-input" :className="className">
+     <IViewInput
+     v-model="selfValue"
+     :type="type"
+     :rows="rows"
+     :placeholder="placeholder">
+     </IViewInput>
   </div>
 </template>
 
 <script>
-import DatePicker from 'iview/src/components/date-picker'
+import IViewInput from 'iview/src/components/input'
 export default {
   props: {
+    placeholder: { default: '' },
+    value: { default: undefined },
+    type: { default: undefined },
+    rows: { default: undefined },
     className: { default: '' }
   },
   data() {
-    return {
-      visible: this.$props.value
-    }
+    return { selfValue: '' }
   },
   watch: {
     value(newValue) {
-      this.$data.visible = newValue
+      this.$data.selfValue = newValue
     },
-    visible(newValue) {
+    selfValue(newValue) {
       this.$emit('input', newValue)
     }
   },
   components: {
-    DatePicker
+    IViewInput
   },
   methods: {
 
@@ -39,38 +39,6 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe-date-picker {
-  .ivu-date-picker-prev-btn-arrow-double,
-  .ivu-date-picker-next-btn-arrow-double {
-    i {
-      font-weight: bold;
-    }
-  }
-  .ivu-date-picker-prev-btn-arrow-double i:before {
-    content: "";
-  }
-  .ivu-date-picker-prev-btn-arrow-double i:after {
-    content: "<";
-  }
-  .ivu-date-picker-next-btn-arrow-double i:before {
-    content: "";
-  }
-  .ivu-date-picker-next-btn-arrow-double i:after {
-    content: ">";
-  }
-  .ivu-input-icon-normal + .ivu-input {
-    border-radius: 0px;
-    // border-bottom: none;
-  }
-  .ivu-date-picker-rel {
-    z-index: 20;
-  }
-  .ivu-date-picker .ivu-select-dropdown {
-    z-index: 10;
-    top: 70px;
-  }
-  .ivu-input {
-    border-radius: 0px;
-  }
+.zpfe-iview-input {
 }
 </style>

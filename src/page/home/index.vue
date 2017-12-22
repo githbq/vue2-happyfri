@@ -27,11 +27,13 @@
   <h1>日期</h1>
   <hr/>
   <DatePicker :open="true" :value="Date.now()" confirm type="year" placeholder="Select year" style="width: 200px"></DatePicker>
+  <IViewInput></IViewInput>
+  <IViewSelect></IViewSelect>
   </div>
 </template>
 
 <script>
-import { Item, Page, Modal, Cropper, DatePicker, Input, Select } from './index.js'
+import { Item, Page, Modal, Cropper, DatePicker, Input as IViewInput, Select as IViewSelect } from './index.js'
 export default {
   name: 'home',
   data() {
@@ -47,7 +49,9 @@ export default {
     Page,
     Modal,
     Cropper,
-    DatePicker
+    DatePicker,
+    IViewInput,
+    IViewSelect
   },
   created() {
 

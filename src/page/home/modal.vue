@@ -1,5 +1,5 @@
 <template>
-  <div class="zpfe-modal" :className="className">
+  <div class="zpfe-iview-modal" :className="className">
    <Modal
         v-model="visible"
         :title="title"
@@ -73,12 +73,14 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe.ivu-modal-wrap {
-  .ivu-modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.zpfe-iview-modal {
+  .ivu-modal-wrap {
+    .ivu-modal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }
 </style>

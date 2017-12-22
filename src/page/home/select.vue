@@ -1,37 +1,45 @@
 <template>
-  <div class="zpfe-date-picker" :className="className">
-    <DatePicker
-    :open="true"
-    :value="Date.now()"
-    confirm type="year"
-    placeholder="Select year"
-    style="width: 200px">
-    <slot></slot>
-    </DatePicker>
+  <div class="zpfe-iview-select" :className="className">
+     <IViewSelect
+     v-model="selfValue"
+     @on-change="onChange"
+     @on-query-change="onQueryChange"
+     :placeholder="placeholder">
+       <Option v-for="item in data" :value="item[$props.valueField]" :key="item[$props.keyField]">{{ item[$props.labelField] }}</Option>
+     </IViewSelect>
   </div>
 </template>
 
 <script>
-import DatePicker from 'iview/src/components/date-picker'
+import IViewSelect from 'iview/src/components/select'
+import IViewOption from 'iview/src/components/option'
 export default {
   props: {
-    className: { default: '' }
+    value: { default: undefined },
+    data: { default: () => [] },
+    placeholder: { default: '' },
+    valueField: { default: 'value' },
+    keyField: { default: 'key' },
+    labelField: { default: 'label' },
+    className: { default: '' },
+    onChange: { default: null },
+    onQueryChange: { default: () => function () { } },
+    onChange: { default: () => function () { } }
   },
   data() {
-    return {
-      visible: this.$props.value
-    }
+    return { selfValue: '' }
   },
   watch: {
     value(newValue) {
-      this.$data.visible = newValue
+      this.$data.selfValue = newValue
     },
-    visible(newValue) {
+    selfValue(newValue) {
       this.$emit('input', newValue)
     }
   },
   components: {
-    DatePicker
+    IViewSelect,
+    IViewOption
   },
   methods: {
 
@@ -39,38 +47,6 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe-date-picker {
-  .ivu-date-picker-prev-btn-arrow-double,
-  .ivu-date-picker-next-btn-arrow-double {
-    i {
-      font-weight: bold;
-    }
-  }
-  .ivu-date-picker-prev-btn-arrow-double i:before {
-    content: "";
-  }
-  .ivu-date-picker-prev-btn-arrow-double i:after {
-    content: "<";
-  }
-  .ivu-date-picker-next-btn-arrow-double i:before {
-    content: "";
-  }
-  .ivu-date-picker-next-btn-arrow-double i:after {
-    content: ">";
-  }
-  .ivu-input-icon-normal + .ivu-input {
-    border-radius: 0px;
-    // border-bottom: none;
-  }
-  .ivu-date-picker-rel {
-    z-index: 20;
-  }
-  .ivu-date-picker .ivu-select-dropdown {
-    z-index: 10;
-    top: 70px;
-  }
-  .ivu-input {
-    border-radius: 0px;
-  }
+.zpfe-iview-select {
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="zpfe-cropper zpfe" :className="className">
+  <div class="zpfe-iview-cropper" :className="className">
     <vue-cropper
         ref="cropper"
         :guides="guides"
@@ -67,7 +67,7 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe-cropper {
+.zpfe-iview-cropper {
   .cropper-point {
     background-color: transparent;
   }

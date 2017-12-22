@@ -1,7 +1,7 @@
 <template>
-  <div class="zpfe-date-picker" :className="className">
+  <div class="zpfe-iview-date-picker" :className="className">
     <DatePicker
-    :open="true"
+    :open="false"
     :value="Date.now()"
     confirm type="year"
     placeholder="Select year"
@@ -39,7 +39,7 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe-date-picker {
+.zpfe-iview-date-picker {
   .ivu-date-picker-prev-btn-arrow-double,
   .ivu-date-picker-next-btn-arrow-double {
     i {

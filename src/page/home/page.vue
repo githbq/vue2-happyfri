@@ -1,5 +1,5 @@
 <template>
-  <div class="zpfe-page" :class="className" >
+  <div class="zpfe-iview-page" :class="className" >
     <Page
       class-name="zpfe"
       :total="total"
@@ -75,7 +75,7 @@ export default {
 }
 </script>
 <style lang="less">
-.zpfe-page {
+.zpfe-iview-page {
   display: inline-block;
   vertical-align: middle;
   padding-left: 20px;
