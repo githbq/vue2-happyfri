@@ -1,27 +1,26 @@
 <template>
   <div class="zpfe-cropper zpfe" :className="className">
-        <vue-cropper
-            ref="cropper"
-            :guides="guides"
-            :view-mode="viewMode"
-            :drag-mode="dragMode"
-            :auto-crop-area="autoCropArea"
-            :min-container-width="minContainerWidth"
-            :min-container-height="minContainerHeight"
-            :background="background"
-            :rotatable="rotatable"
-            :src="imgSrc"
-            :alt="alt"
-            :img-style="imgStyle"
-            :auto-crop="autoCrop"
-            :highlight="highlight"
-            >
-        </vue-cropper>
-</div>
+    <vue-cropper
+        ref="cropper"
+        :guides="guides"
+        :view-mode="viewMode"
+        :drag-mode="dragMode"
+        :auto-crop-area="autoCropArea"
+        :min-container-width="minContainerWidth"
+        :min-container-height="minContainerHeight"
+        :background="background"
+        :rotatable="rotatable"
+        :src="imgSrc"
+        :alt="alt"
+        :img-style="imgStyle"
+        :auto-crop="autoCrop"
+        :highlight="highlight"
+        >
+    </vue-cropper>
+  </div>
 </template>
 
 <script>
-import 'iview/dist/styles/iview.css'
 import VueCropper from 'vue-cropperjs';
 export default {
   props: {

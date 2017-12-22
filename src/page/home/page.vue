@@ -84,8 +84,8 @@ export default {
   &.right {
     float: right;
   }
-  &.left {
-  }
+  // &.left {
+  // }
   .ivu-page {
     float: left;
   }

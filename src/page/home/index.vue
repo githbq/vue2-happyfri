@@ -31,12 +31,7 @@
 </template>
 
 <script>
-import './iview-polyfill'
-import Item from '../item'
-import Page from './page'
-import Modal from './modal'
-import Cropper from './cropper'
-import DatePicker from './date-picker'
+import { Item, Page, Modal, Cropper, DatePicker, Input, Select } from '.'
 export default {
   name: 'home',
   data() {
