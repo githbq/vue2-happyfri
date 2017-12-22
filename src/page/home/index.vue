@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { Item, Page, Modal, Cropper, DatePicker, Input, Select } from '.'
+import { Item, Page, Modal, Cropper, DatePicker, Input, Select } from './index.js'
 export default {
   name: 'home',
   data() {
